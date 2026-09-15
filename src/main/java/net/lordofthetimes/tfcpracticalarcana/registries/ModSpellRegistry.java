@@ -24,4 +24,13 @@ public class ModSpellRegistry {
     public static final Supplier<AbstractSpell> PRESERVE = registerSpell(new PreserveSpell());
 
     public static final Supplier<AbstractSpell> REVITALIZE = registerSpell(new RevitalizeSpell());
+
+    /*TODO: SPELL IDEAS
+
+    Cool item spell: cools down any item with tfc heat property
+    Heat item spell: heats items with tfc heat property, funny debuff if you use it for food
+    Set Fire: sets the block you look at at fire (works with campfires, forges, campfire pots, pit kilns,
+    charcoal pits, etc. (other mod like firmalife integrations?)
+    Boost sapling/crop growth? potentially too op?
+     */
 }
