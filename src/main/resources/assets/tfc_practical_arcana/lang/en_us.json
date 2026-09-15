@@ -1,0 +1,32 @@
+{
+  "spell.tfc_practical_arcana.freshwell": "Fresh Well",
+  "spell.tfc_practical_arcana.freshwell.guide": "Gather fresh water with mana to fill a barrel.",
+
+  "spell.tfc_practical_arcana.brinewell": "Brine Well",
+  "spell.tfc_practical_arcana.brinewell.guide": "Gather fresh water with mana and infuse it with salt to fill a barrel.",
+
+  "spell.tfc_practical_arcana.rekindle": "Rekindle",
+  "spell.tfc_practical_arcana.rekindle.guide": "Gather environmental mana around dead torches and unlit candles in a certain radius, and turn the mana into fire to light them. Will also restart burn time for all lit torches and candles.",
+
+  "spell.tfc_practical_arcana.preserve": "Preserve Food",
+  "spell.tfc_practical_arcana.preserve.guide": "By blessing the food, you can slow down spoiling and preserve it for longer.",
+
+  "spell.tfc_practical_arcana.revitalize": "Revitalize",
+  "spell.tfc_practical_arcana.revitalize.guide": "Agitate vital energy in crops to temporarily revitalize them. NOTE: If the crop lacks the survival conditions, it will die again shortly.",
+
+
+  "ui.tfc_practical_arcana.cast_error_target_block_entity_barrel": "This spell requires a barrel as a target.",
+  "ui.tfc_practical_arcana.cast_error_target_barrel_another_fluid": "This spell requires an empty barrel, or a barrel with %s.",
+  "ui.tfc_practical_arcana.cast_error_target_barrel_sealed": "This spell requires the barrel to be open.",
+  "ui.tfc_practical_arcana.spell_target_success_fill_barrel": "Filling the barrel with %s",
+
+  "ui.tfc_practical_arcana.cast_error_not_food": "This spell requires you to hold food item in your main hand.",
+
+  "ui.tfc_practical_arcana.fluid_amount": "Amount: %smB",
+
+  "ui.tfc_practical_arcana.chance_crop": "Chance per crop: %s%%",
+
+
+  "tooltip.tfc_practical_arcana.food_trait.magically_preserved": "Magically Preserved"
+
+}

@@ -26,6 +26,18 @@ sourceSets.main.resources {
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
+    maven {
+        name = "Iron's Maven - Release"
+        url = "https://code.redspace.io/releases"
+    }
+    maven {
+        name = "Iron's Maven - Snapshots"
+        url = "https://code.redspace.io/snapshots"
+    }
+    maven {
+        url "https://cursemaven.com"
+    }
+
 }
 
 base {
@@ -102,6 +114,28 @@ dependencies {
     // And its provides the option to then use net.minecraft as the group, and one of; client, server or joined as the module name, plus the game version as version.
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
+
+
+
+    localRuntime "curse.maven:irons-lib-1492763:8364894"
+
+//    compileOnly "io.redspace:irons_spellbooks:1.21.1-3.16.3:api"
+    compileOnly "curse.maven:irons-spells-n-spellbooks-855414:8680204"
+    localRuntime "curse.maven:irons-spells-n-spellbooks-855414:8680204"
+
+    compileOnly "curse.maven:terrafirmacraft-302973:8831715"
+    localRuntime "curse.maven:terrafirmacraft-302973:8831715"
+
+    //libs
+    localRuntime "curse.maven:playeranimator-658587:7389814"
+    localRuntime "curse.maven:curios-309927:6529130"
+    localRuntime "curse.maven:geckolib-388172:8350073"
+    localRuntime "curse.maven:patchouli-306770:7730942"
+
+
+    //utils
+    localRuntime "curse.maven:jade-324717:8591319"
+    localRuntime "curse.maven:jei-238222:8886909"
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

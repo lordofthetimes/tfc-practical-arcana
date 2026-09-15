@@ -1,0 +1,27 @@
+package net.lordofthetimes.tfcpracticalarcana.registries;
+
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+
+import net.lordofthetimes.tfcpracticalarcana.TfcPracticalArcana;
+import net.lordofthetimes.tfcpracticalarcana.spells.*;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
+
+public class ModSpellRegistry {
+    public static final DeferredRegister<AbstractSpell> SPELLS = DeferredRegister.create(SpellRegistry.SPELL_REGISTRY_KEY, TfcPracticalArcana.MODID);
+
+    public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
+        return SPELLS.register(spell.getSpellName(), () -> spell);
+    }
+
+    public static final Supplier<AbstractSpell> FRESH_WELL = registerSpell(new FreshWellSpell());
+    public static final Supplier<AbstractSpell> BRINE_WELL = registerSpell(new BrineWellSpell());
+
+    public static final Supplier<AbstractSpell> REKINDLE = registerSpell(new RekindleSpell());
+
+    public static final Supplier<AbstractSpell> PRESERVE = registerSpell(new PreserveSpell());
+
+    public static final Supplier<AbstractSpell> REVITALIZE = registerSpell(new RevitalizeSpell());
+}
