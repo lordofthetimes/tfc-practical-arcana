@@ -42,6 +42,13 @@ public class HeatSpell extends AbstractSpell {
             ResourceLocation.fromNamespaceAndPath("c", "foods")
     );
 
+    public static final TagKey<Item> WOODEN_RODS = TagKey.create(
+            Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("c", "rods/wooden")
+    );
+
+
+
     public HeatSpell(){
         this.baseManaCost = 70;
     }
@@ -77,7 +84,7 @@ public class HeatSpell extends AbstractSpell {
 
         if(heat == null) return;
 
-        if(stack.is(COMMON_FOODS) || stack.is(TFCItems.TORCH.asItem())){
+        if(stack.is(COMMON_FOODS) || stack.is(WOODEN_RODS)){
             heat.setTemperature(heat.getTemperature() + 200f);
         }
         else{
