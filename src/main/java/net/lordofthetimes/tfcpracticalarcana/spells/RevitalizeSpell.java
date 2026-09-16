@@ -3,16 +3,12 @@ package net.lordofthetimes.tfcpracticalarcana.spells;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
-import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
-import io.redspace.ironsspellbooks.api.spells.CastSource;
-import io.redspace.ironsspellbooks.api.spells.CastType;
-import io.redspace.ironsspellbooks.api.spells.SpellRarity;
+import io.redspace.ironsspellbooks.api.spells.*;
+import io.redspace.ironsspellbooks.api.util.AnimationHolder;
+import io.redspace.ironsspellbooks.entity.spells.target_area.TargetedAreaEntity;
+import io.redspace.ironsspellbooks.spells.TargetAreaCastData;
 import net.dries007.tfc.common.blockentities.CropBlockEntity;
-import net.dries007.tfc.common.blockentities.TFCBlockEntities;
-import net.dries007.tfc.common.blockentities.TickCounterBlockEntity;
-import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.TFCBlocks;
-import net.dries007.tfc.common.blocks.TFCCandleCakeBlock;
 import net.dries007.tfc.common.blocks.crop.*;
 import net.lordofthetimes.tfcpracticalarcana.TfcPracticalArcana;
 import net.minecraft.core.BlockPos;
@@ -21,13 +17,12 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -74,6 +69,15 @@ public class RevitalizeSpell extends AbstractSpell {
     }
 
     @Override
+    public void onServerPreCast(Level level, int spellLevel, LivingEntity caster, @Nullable MagicData playerMagicData) {
+        super.onServerPreCast(level, spellLevel, caster, playerMagicData);
+        if (playerMagicData == null)
+            return;
+        TargetedAreaEntity targetedAreaEntity = TargetedAreaEntity.createTargetAreaEntity(level, caster.position(), (float) getRadius(spellLevel,caster), 0X00ff00, caster);
+        playerMagicData.setAdditionalCastData(new TargetAreaCastData(caster.position(), targetedAreaEntity));
+    }
+
+    @Override
     public void onCast(Level level, int spellLevel, LivingEntity caster, CastSource castSource, MagicData playerMagicData) {
         double radius = getRadius(spellLevel, caster);
 
@@ -94,7 +98,7 @@ public class RevitalizeSpell extends AbstractSpell {
                     if(block instanceof WildCropBlock cropBlock){
                         int roll = level.random.nextInt(5) + 1;
 
-                        if (roll > spellLevel && !state.getValue(WildCropBlock.MATURE)) return;
+                        if (roll > spellLevel || state.getValue(WildCropBlock.MATURE)) return;
 
                         level.setBlockAndUpdate(pos, state.cycle(WildCropBlock.MATURE));
                     }
@@ -137,7 +141,7 @@ public class RevitalizeSpell extends AbstractSpell {
                                 level.updateNeighborsAt(pos.above(), doubleCropBlock);
                             }
 
-                            // TODO: FIX THE FLOODEDCROPBLOCK REVITALIZATION FOR MATURE CROP SO IT DOESN'T INSTANTLY BREAK
+                            //TODO: FIX THE FLOODEDCROPBLOCK REVITALIZATION FOR MATURE CROP SO IT DOESN'T INSTANTLY BREAK
                             if (cropBlock instanceof FloodedCropBlock floodedCropBlock){
                                 newState = floodedCropBlock.defaultBlockState()
                                         .setValue(floodedCropBlock.getAgeProperty(),
@@ -211,5 +215,19 @@ public class RevitalizeSpell extends AbstractSpell {
         return 2 + Math.floor(getSpellPower(spellLevel,caster));
     }
 
+    @Override
+    public AnimationHolder getCastStartAnimation() {
+        return SpellAnimations.CHARGE_RAISED_HAND;
+    }
+
+    @Override
+    public AnimationHolder getCastFinishAnimation() {
+        return SpellAnimations.TOUCH_GROUND_ANIMATION;
+    }
+
+    @Override
+    public boolean stopSoundOnCancel() {
+        return true;
+    }
 
 }

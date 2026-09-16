@@ -5,14 +5,31 @@
   "spell.tfc_practical_arcana.brinewell": "Brine Well",
   "spell.tfc_practical_arcana.brinewell.guide": "Gather fresh water with mana and infuse it with salt to fill a barrel.",
 
+  "spell.tfc_practical_arcana.cool": "Cool",
+  "spell.tfc_practical_arcana.cool.guide": "Cool down item in your main hand.",
+
+
+
   "spell.tfc_practical_arcana.rekindle": "Rekindle",
   "spell.tfc_practical_arcana.rekindle.guide": "Gather environmental mana around dead torches and unlit candles in a certain radius, and turn the mana into fire to light them. Will also restart burn time for all lit torches and candles.",
+
+  "spell.tfc_practical_arcana.set_fire": "Set Fire",
+  "spell.tfc_practical_arcana.set_fire.guide": "Gather mana around a block you are looking at, and try to light it on fire.",
+
+  "spell.tfc_practical_arcana.heat": "Heat",
+  "spell.tfc_practical_arcana.heat.guide": "Heat up item in your main hand. Light sticks on fire and turn them into torches, or cook food in an instant, but I would not recommend doing that.",
+
 
   "spell.tfc_practical_arcana.preserve": "Preserve Food",
   "spell.tfc_practical_arcana.preserve.guide": "By blessing the food, you can slow down spoiling and preserve it for longer.",
 
+  "spell.tfc_practical_arcana.arcane_support": "Arcane Support",
+  "spell.tfc_practical_arcana.arcane_support.guide": "Using mana, temporarily support raw rock and prevent it from collapsing.",
+
+
   "spell.tfc_practical_arcana.revitalize": "Revitalize",
   "spell.tfc_practical_arcana.revitalize.guide": "Agitate vital energy in crops to temporarily revitalize them. NOTE: If the crop lacks the survival conditions, it will die again shortly.",
+
 
 
   "ui.tfc_practical_arcana.cast_error_target_block_entity_barrel": "This spell requires a barrel as a target.",
@@ -22,11 +39,16 @@
 
   "ui.tfc_practical_arcana.cast_error_not_food": "This spell requires you to hold food item in your main hand.",
 
+  "ui.tfc_practical_arcana.cast_error_no_heat_property": "This spell requires you to hold heatable item in your main hand.",
+
+  "ui.tfc_practical_arcana.cast_error_target_block": "This spell must target a block.",
+
   "ui.tfc_practical_arcana.fluid_amount": "Amount: %smB",
 
   "ui.tfc_practical_arcana.chance_crop": "Chance per crop: %s%%",
 
 
-  "tooltip.tfc_practical_arcana.food_trait.magically_preserved": "Magically Preserved"
 
+  "tooltip.tfc_practical_arcana.food_trait.magically_preserved": "Magically Preserved",
+  "tooltip.tfc_practical_arcana.food_trait.magically_ruined": "Magically Ruined"
 }

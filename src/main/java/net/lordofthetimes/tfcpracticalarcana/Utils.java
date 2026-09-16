@@ -4,17 +4,21 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.util.RaycastBuilder;
 import net.dries007.tfc.common.blockentities.BarrelBlockEntity;
 import net.dries007.tfc.common.blocks.devices.BarrelBlock;
+import net.dries007.tfc.common.component.heat.HeatCapability;
+import net.dries007.tfc.common.component.heat.IHeat;
 import net.lordofthetimes.tfcpracticalarcana.data.BlockEntityCastData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.fluids.FluidStack;
+
+import javax.annotation.Nullable;
 
 public class Utils {
 
@@ -76,5 +80,40 @@ public class Utils {
         return false;
     }
 
+
+    public static boolean preCastSetFireHelper(Level level, LivingEntity caster, MagicData playerMagicData, int range){
+        var target = RaycastBuilder.begin(level, caster)
+                .range(range)
+                .checkForBlocks(true)
+                .build();
+
+
+        if( caster instanceof ServerPlayer serverPlayer){
+            if(!(target instanceof BlockHitResult blockHitResult)) {
+                serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(
+                        Component.translatable("ui.tfc_practical_arcana.cast_error_target_block")
+                                .withStyle(ChatFormatting.RED)
+                ));
+                return true;
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean preCastHeatCapabilityHelper(Level level, LivingEntity caster){
+        ItemStack stack = caster.getMainHandItem();
+        final @Nullable IHeat heat = HeatCapability.get(stack);
+
+        if(heat == null && caster instanceof  ServerPlayer serverPlayer){
+            serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(
+                    Component.translatable("ui.tfc_practical_arcana.cast_error_no_heat_property")
+                            .withStyle(ChatFormatting.RED)
+            ));
+        }
+
+        return true;
+    }
 
 }

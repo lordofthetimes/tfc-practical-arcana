@@ -1,4 +1,4 @@
-package net.lordofthetimes.tfcpracticalarcana.registries;
+package net.lordofthetimes.tfcpracticalarcana.registry;
 
 import net.dries007.tfc.common.component.food.FoodTrait;
 import net.dries007.tfc.common.component.food.FoodTraits;
@@ -13,6 +13,7 @@ public class ModFoodTraits {
     public static final DeferredRegister<FoodTrait> TRAITS = DeferredRegister.create(FoodTraits.KEY, TfcPracticalArcana.MODID);
 
     public static final DeferredHolder<FoodTrait, FoodTrait> MAGICALLY_PRESERVED = register("magically_preserved", () -> 0.7d);
+    public static final DeferredHolder<FoodTrait, FoodTrait> MAGICALLY_RUINED = register("magically_ruined", () -> 4d);
 
     private static DeferredHolder<FoodTrait, FoodTrait> register(String name, Supplier<Double> decayModifier)
     {

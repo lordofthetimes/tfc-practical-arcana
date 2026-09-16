@@ -9,7 +9,7 @@ import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import net.dries007.tfc.common.recipes.outputs.AddTraitModifier;
 import net.lordofthetimes.tfcpracticalarcana.TfcPracticalArcana;
-import net.lordofthetimes.tfcpracticalarcana.registries.ModFoodTraits;
+import net.lordofthetimes.tfcpracticalarcana.registry.ModFoodTraits;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;

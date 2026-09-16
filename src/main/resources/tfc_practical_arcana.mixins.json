@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "net.lordofthetimes.tfcpracticalarcana.mixins",
+  "mixins": [
+    "tfc.CollapseMixin"
+  ],
+  "injectors": { "defaultRequire": 1 }
+
+}

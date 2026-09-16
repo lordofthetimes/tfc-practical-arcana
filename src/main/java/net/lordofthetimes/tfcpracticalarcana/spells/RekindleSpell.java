@@ -109,6 +109,7 @@ public class RekindleSpell extends AbstractSpell {
                         level.getBlockEntity(pos, TFCBlockEntities.TICK_COUNTER.get()).ifPresent(TickCounterBlockEntity::resetCounter);
                     }
 
+                    //TODO: FIX FOR CANDLE CAKE BLOCK
                     if (block instanceof CandleCakeBlock){
                         level.setBlockAndUpdate(pos, state.setValue(TFCCandleCakeBlock.LIT, true));
                         level.getBlockEntity(pos, TFCBlockEntities.TICK_COUNTER.get()).ifPresent(TickCounterBlockEntity::resetCounter);

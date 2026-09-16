@@ -1,7 +1,8 @@
 package net.lordofthetimes.tfcpracticalarcana;
 
-import net.lordofthetimes.tfcpracticalarcana.registries.ModFoodTraits;
-import net.lordofthetimes.tfcpracticalarcana.registries.ModSpellRegistry;
+import net.lordofthetimes.tfcpracticalarcana.registry.ModEffects;
+import net.lordofthetimes.tfcpracticalarcana.registry.ModFoodTraits;
+import net.lordofthetimes.tfcpracticalarcana.registry.ModSpellRegistry;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -24,6 +25,7 @@ public class TfcPracticalArcana {
 
         ModFoodTraits.TRAITS.register(modEventBus);
 
+        ModEffects.register(modEventBus);
 
         ModSpellRegistry.SPELLS.register(modEventBus);
 
