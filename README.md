@@ -1,25 +1,21 @@
+<span style="color:#ba372a">THIS IS NOT A COMPAT MOD AND DOES NOT CHANGE ANY RECIPES, ONLY ADDS NEW SPELLS</span>
 
-Installation information
-=======
+**This mod adds a few spells that focus on survival utility outside of combat:**
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+*   Fresh Well: Fills a barrel with water based on the scroll level
+*   Brine Well: Fills a barrel with salt water based on the scroll level
+*   Heat: Heats any heat-able item in your main hand, effects:
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+<div class="spoiler">Heats sticks and food instantly too cooked, food gets a major debuff called "Magically Ruined", metals heat up by 1/5th max heat, and melt and disapear when overheated</div>
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+*   Preserve Spell: Applies a completely new food trait "Magically Preserved" that extends the food spoil time
+*   Rekindle: Relights all torches and candles in a radius based on spells level
+*   Set Fire: Magical way to start fires, lights existing and new campfires, charcoal forges, bloomeries etc.
+*   Revitalize: Revives dead wild and farm crops (The crops will die again unless they have right conditions)
+*   Arcane Support: Gives a new effect called "Arcane Support" that stops you from causing collapses (does not affect landslides)
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Requires:
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+*   TerraFirmaCraft: 4.1.0 or above
+*   Iron's Spells 'n Spellbooks: 3.16.0 or above
+*   All of dependencies of those 2 mods
