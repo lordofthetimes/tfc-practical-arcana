@@ -39,9 +39,9 @@ public class ArcaneSupportSpell extends AbstractSpell {
             .build();
 
     public ArcaneSupportSpell(){
-        this.manaCostPerLevel = 20;
         this.baseSpellPower = 1;
         this.spellPowerPerLevel = 1;
+        this.manaCostPerLevel = 20;
         this.baseManaCost = 60;
     }
 
@@ -93,6 +93,7 @@ public class ArcaneSupportSpell extends AbstractSpell {
     }
 
     private float getEffectLength(int spellLevel, LivingEntity caster){
-        return 20 * 20 + (20 * 15 * getSpellPower(spellLevel, caster));
+        return 20 * 20 +
+                (20 * 15 * getSpellPower(spellLevel, caster));
     }
 }

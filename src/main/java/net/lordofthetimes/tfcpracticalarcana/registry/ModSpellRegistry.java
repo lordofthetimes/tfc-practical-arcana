@@ -25,7 +25,9 @@ public class ModSpellRegistry {
 
     public static final Supplier<AbstractSpell> PRESERVE = registerSpell(new PreserveSpell());
 
+
     public static final Supplier<AbstractSpell> ARCANE_SUPPORT = registerSpell(new ArcaneSupportSpell());
+
 
     public static final Supplier<AbstractSpell> REVITALIZE = registerSpell(new RevitalizeSpell());
 

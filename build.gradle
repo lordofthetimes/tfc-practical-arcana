@@ -126,6 +126,11 @@ dependencies {
     compileOnly "curse.maven:terrafirmacraft-302973:8831715"
     localRuntime "curse.maven:terrafirmacraft-302973:8831715"
 
+    //FOR TESTING 4.1.0 COMPATIBILITY
+
+    //    compileOnly "curse.maven:terrafirmacraft-302973:7875771"
+    //    localRuntime "curse.maven:terrafirmacraft-302973:7875771"
+
     //libs
     localRuntime "curse.maven:playeranimator-658587:7389814"
     localRuntime "curse.maven:curios-309927:6529130"
